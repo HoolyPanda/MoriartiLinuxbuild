@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 377, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+TypeError: getresponse() got an unexpected keyword argument 'buffering'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 233, in <module>
+    main()
+  File "main.py", line 229, in main
+    getChats(session)
+  File "main.py", line 72, in getChats
+    StartLPS(session, chats)
+  File "main.py", line 102, in StartLPS
+    Lp=threading.Thread(target=lp.LPListen(),name="LP",daemon=True)
+  File "/home/orangepi/Moriarty/MoriartiLinuxbuild/lpserver.py", line 16, in LPListen
+    for event in vk_api.longpoll.VkLongPoll.listen(self.longpollserver):
+  File "/usr/local/lib/python3.7/dist-packages/vk_api/longpoll.py", line 597, in listen
+    for event in self.check():
+  File "/usr/local/lib/python3.7/dist-packages/vk_api/longpoll.py", line 536, in check
+    timeout=self.wait + 10
+  File "/usr/local/lib/python3.7/dist-packages/requests/sessions.py", line 546, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.7/http/client.py", line 1321, in getresponse
+    response.begin()
+  File "/usr/lib/python3.7/http/client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.7/http/client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.7/ssl.py", line 1049, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.7/ssl.py", line 908, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
